@@ -1,0 +1,25 @@
+qarm_rl:
+  ros__parameters:
+    stream_uri: "tcpip://192.168.1.2:18000"
+    stream_agent: "C"
+    stream_send_buffer_size: 1460
+    stream_recv_buffer_size: 1460
+    stream_non_blocking: false
+    stream_reshape_order: "F"
+    stream_receive_iterations: 2
+    stream_timeout_ns: 1
+    no_data_warn_threshold: 10
+    control_rate_hz: 30.0
+
+    joint_state_topic: "/joint_states"
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+
+    target_topic: "/policy/target_pose_xyz_xyzw"
+    target_quat_xyzw: [0.70710678, 0.70710678, 0.0, 0.0]
+    cam_zero_epsilon: 1.0e-06
+    stability_window_size: 10
+    stability_position_tolerance_m: 0.01
+    stable_publish_delay_s: 2.0
+    home_joint_pos: [-1.309, -0.8727, 2.00713, 0.0, 1.5708, -0.2618]
+    home_tolerance_rad: 0.05
+    home_hold_cycles: 5

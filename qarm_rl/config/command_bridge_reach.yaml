@@ -1,0 +1,14 @@
+qarm_rl:
+  ros__parameters:
+    input_topic: "/policy/joint_actions"
+    output_topic: "/arm_controller/joint_trajectory"
+    joint_state_topic: "/joint_states"
+
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+    default_joint_pos_policy: [1.5708, -1.0472, 2.0944, 0.261799, 1.5708, 0.0]
+
+    action_scale: 0.5
+    max_joint_velocity_rad_s: 3.141592653589793
+    publish_rate_hz: 500.0
+    policy_rate_hz: 30.0
+    policy_action_timeout_s: 0.05

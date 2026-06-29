@@ -1,0 +1,29 @@
+qarm_rl:
+  ros__parameters:
+    target_topic: "/policy/target_pose_xyz_xyzw"
+    joint_state_topic: "/joint_states"
+    trajectory_topic: "/arm_controller/joint_trajectory"
+    gripper_action_name: "/gripper_controller/gripper_cmd"
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+
+    # [x, y, z, qx, qy, qz, qw]
+    # target_pose_xyz_xyzw: [0.113, 0.53464, 0.20487, 0.0, 0.0, 0.70710678, 0.70710678]
+    target_pose_xyz_xyzw: [-0.113, -0.53464, 0.20487, 0.0, 0.0, 0.0, 1.0]
+
+    midpoint_joint_pos: [0.0, 0.0, 1.57,-1.57, 1.5708, 0.0]
+    home_joint_pos: [-1.5708, -1.0472, 2.0944, 0.261799, 1.5708, 0.0]
+    place_joint_pos: [1.76,0.516,0.618,0.4648,1.57,-0.1708]
+
+    position_tolerance_m: 0.01
+    waypoint_joint_tolerance_rad: 0.03
+    waypoint_hold_cycles: 5
+    trajectory_time_from_start_sec: 1.02
+    check_rate_hz: 20.0
+    state_timeout_s: 20.0
+
+    gripper_close_position: 1.0
+    gripper_open_position: 0.0
+    gripper_max_effort: 20.0
+    gripper_wait_s: 1.0
+
+    auto_start: true

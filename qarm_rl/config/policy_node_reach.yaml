@@ -1,0 +1,18 @@
+qarm_rl:
+  ros__parameters:
+    checkpoint_path: "/home/academic/Documents/qarm_research/robotis_dds/2026-06-12/exported/policy.pt"
+    device: "cuda"
+    control_rate_hz: 30.0
+    episode_timeout_s: 50.0
+    target_topic: "/policy/target_pose_xyz_xyzw"
+
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"]
+    default_joint_pos: [0.0, 1.0471456196, -2.0943631445, -0.2617474562, 0.0, 0.0]
+
+    # [x, y, z, qx, qy, qz, qw]
+    target_pose_xyz_xyzw: [0.113, 0.63464, 0.20487, 0.0, 0.0, 0.70710678, 0.70710678]
+
+    action_scale: 0.5
+    min_bridge_action_dim: 6
+
+    start_on_launch: false
