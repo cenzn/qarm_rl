@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/resource', [
             'resource/stream.py',
+            'resource/policy.pt',
             'resource/vision_server.rt-linux_qcar2',
         ]),
         ('share/' + package_name + '/config', [

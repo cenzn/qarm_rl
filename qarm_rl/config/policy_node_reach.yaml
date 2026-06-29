@@ -1,6 +1,5 @@
 qarm_rl:
   ros__parameters:
-    checkpoint_path: "/home/academic/Documents/qarm_research/robotis_dds/2026-06-12/exported/policy.pt"
     device: "cuda"
     control_rate_hz: 30.0
     episode_timeout_s: 50.0

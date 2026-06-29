@@ -5,11 +5,22 @@ from typing import List, Optional
 import numpy as np
 import rclpy
 import torch
+from ament_index_python.packages import get_package_share_directory
 from rclpy.node import Node
 from rclpy.qos import DurabilityPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import JointState
 from std_msgs.msg import Float64MultiArray
 from std_srvs.srv import SetBool, Trigger
+
+
+def _default_checkpoint_path() -> str:
+    # Prefer installed package share path; fall back to source tree resource path.
+    try:
+        share_dir = get_package_share_directory('qarm_rl')
+        return os.path.join(share_dir, 'resource', 'policy.pt')
+    except Exception:
+        repo_root = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        return os.path.join(repo_root, 'resource', 'policy.pt')
 
 
 class PolicyNodeReach(Node):
@@ -18,7 +29,7 @@ class PolicyNodeReach(Node):
     def __init__(self) -> None:
         super().__init__('policy_node_reach')
 
-        self.declare_parameter('checkpoint_path', '/home/nvidia/Documents/qarm_research/qarm_rl/resource/policy.pt')
+        self.declare_parameter('checkpoint_path', _default_checkpoint_path())
         self.declare_parameter('device', 'cuda')
         self.declare_parameter('control_rate_hz', 30.0)
         self.declare_parameter('episode_timeout_s', 5.0)
